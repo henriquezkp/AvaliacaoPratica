@@ -56,7 +56,7 @@ class ContatoController {
         if (existente) {
             return res.status(400).json({ message: 'Contato já cadastrado' });
         } else {
-            const estoque = await Contato.create({
+            const novo = await Contato.create({
                 nome: (nome.toUpperCase()),
                 sobrenome: (sobrenome.toUpperCase()),
                 celular,
@@ -64,7 +64,7 @@ class ContatoController {
                 created_at: new Date(),
                 updated_at: new Date()
             });
-            return res.status(200).json(estoque);
+            return res.status(200).json(novo);
         }
     }
 

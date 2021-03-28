@@ -1,5 +1,3 @@
 import App from './app';
 
-App.listen(3000,{
-    msg: "Rodando"
-});
+App.listen(3000);

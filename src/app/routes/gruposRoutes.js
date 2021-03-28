@@ -8,5 +8,24 @@ routes.get(
     GrupoController.index
 );
 
+routes.get(
+    '/grupos/:id',
+    GrupoController.show
+);
+
+routes.post(
+    '/grupos',
+    GrupoController.store
+);
+
+routes.put(
+    '/grupos/:id',
+    GrupoController.update
+);
+
+routes.delete(
+    '/grupos/:id',
+    GrupoController.delete
+);
 
 export default routes;

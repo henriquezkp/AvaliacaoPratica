@@ -6,6 +6,8 @@ import './database/index';
 import ContatosRoutes from './app/routes/contatosRoutes';
 import EventosRoutes from './app/routes/eventosRoutes';
 import GruposRoutes from './app/routes/gruposRoutes';
+import ContatosDeGruposRoutes from './app/routes/contatosDeGruposRoutes';
+import ParticipantesRoutes from './app/routes/participantesRoutes';
 
 class App {
     constructor() {
@@ -28,6 +30,8 @@ class App {
         this.server.use(ContatosRoutes);
         this.server.use(EventosRoutes);
         this.server.use(GruposRoutes);
+        this.server.use(ContatosDeGruposRoutes);
+        this.server.use(ParticipantesRoutes);
     }
 
     exibirContatos() {
