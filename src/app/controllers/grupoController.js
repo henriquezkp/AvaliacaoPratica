@@ -1,4 +1,5 @@
 import Contato from '../models/contato';
+import ContatosDeGrupos from '../models/contatosDeGrupos';
 import Evento from '../models/evento';
 import Grupo from '../models/grupo';
 
@@ -8,7 +9,8 @@ class GrupoController {
         const grupos = await Grupo.findAll({
            include: [
                 {
-                    model: Contato,
+                    model: ContatosDeGrupos,
+                    attributes:['id_contato']
                     
                 }
             ]

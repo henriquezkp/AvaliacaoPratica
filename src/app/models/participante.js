@@ -32,10 +32,10 @@ class Participante extends Model {
     }
 
     static associate(models){
-        this.hasMany(models.Contato, {
+        this.belongsTo(models.Contato, {
             foreignKey:'id_contato'
         });
-        this.hasMany(models.Evento,{
+        this.belongsTo(models.Evento,{
             foreignKey:'id_evento'
         });
     }

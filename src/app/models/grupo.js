@@ -26,6 +26,9 @@ class Grupo extends Model {
             through: models.ContatosDeGrupos,
             foreignKey: 'id_grupo'
         });
+        this.hasMany(models.ContatosDeGrupos, {
+            foreignKey: 'id_grupo'
+        });
     }
 
 }

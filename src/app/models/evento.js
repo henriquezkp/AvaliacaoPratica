@@ -28,7 +28,10 @@ class Evento extends Model {
     static associate(models) {
         this.belongsToMany(models.Contato, {
             through: models.Participante,
-            foreignKey:'id_evento'
+            foreignKey: 'id_evento'
+        });
+        this.hasMany(models.Participante, {
+            foreignKey: 'id_evento'
         });
     }
 }
