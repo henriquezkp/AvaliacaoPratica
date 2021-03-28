@@ -6,11 +6,12 @@ import Grupo from '../models/grupo';
 class GrupoController {
     async index(req, res) {
         const grupos = await Grupo.findAll({
-           /* include: [
+           include: [
                 {
-                    model: Evento
+                    model: Contato,
+                    
                 }
-            ]*/
+            ]
         });
         return res.status(200).json(grupos);
     }

@@ -23,7 +23,8 @@ class Grupo extends Model {
 
     static associate(models) {
         this.belongsToMany(models.Contato, {
-            through: models.ContatosDeGrupos
+            through: models.ContatosDeGrupos,
+            foreignKey: 'id_grupo'
         });
     }
 

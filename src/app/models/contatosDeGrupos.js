@@ -12,7 +12,7 @@ class ContatosDeGrupos extends Model {
                     key: 'id'
                 }
             },
-            id_grupos: {
+            id_grupo: {
                 type: Sequelize.INTEGER,
                 primaryKey: true,
                 references: {
@@ -29,6 +29,15 @@ class ContatosDeGrupos extends Model {
         });
 
         return this;
+    }
+
+    static associate(models) {
+        this.hasMany(models.Contato, {
+            foreignKey:'id_contato'
+        });
+        this.belongsTo(models.Grupo,{
+            foreignKey:'id_grupo'
+        });
     }
 
 }

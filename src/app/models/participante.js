@@ -31,6 +31,15 @@ class Participante extends Model {
         return this;
     }
 
+    static associate(models){
+        this.hasMany(models.Contato, {
+            foreignKey:'id_contato'
+        });
+        this.hasMany(models.Evento,{
+            foreignKey:'id_evento'
+        });
+    }
+
 }
 
 export default Participante;
