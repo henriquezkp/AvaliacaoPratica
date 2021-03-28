@@ -10,7 +10,9 @@ class ContatosDeGrupos extends Model {
                     model: 'contatos',
                     schema: 'agenda',
                     key: 'id'
-                }
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
             },
             id_grupo: {
                 type: Sequelize.INTEGER,
@@ -19,7 +21,9 @@ class ContatosDeGrupos extends Model {
                     model: 'grupos',
                     schema: 'agenda',
                     key: 'id'
-                }
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
             },
 
         }, {
@@ -32,7 +36,7 @@ class ContatosDeGrupos extends Model {
     }
 
     static associate(models) {
-        this.hasMany(models.Contato, {
+        this.belongsTo(models.Contato, {
             foreignKey:'id_contato'
         });
         this.belongsTo(models.Grupo,{

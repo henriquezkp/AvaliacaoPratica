@@ -1,4 +1,3 @@
-import Contato from '../models/contato';
 import Evento from '../models/evento';
 import Participante from '../models/participante';
 

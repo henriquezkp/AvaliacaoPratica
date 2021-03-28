@@ -29,18 +29,18 @@ class Contato extends Model {
             schema: 'agenda',
             tableName: 'contatos'
         });
-
+        
         return this;
     }
 
-    static associate(models) {
-        this.belongsToMany(models.Grupo, {
-            through: models.ContatosDeGrupos,
+    static associate(models){
+        this.belongsToMany(models.Grupo,{
+            through:models.ContatosDeGrupos,
             foreignKey: 'id_contato'
         });
-        this.belongsToMany(models.Evento, {
-            through: models.Participante,
-            foreignKey: 'id_contato'
+        this.belongsToMany(models.Evento,{
+            through:models.Participante,
+            foreignKey:'id_contato'
         });
     }
 

@@ -10,7 +10,9 @@ class Participante extends Model {
                     model: 'contatos',
                     schema: 'agenda',
                     key: 'id'
-                }
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
             },
             id_evento: {
                 type: Sequelize.INTEGER,
@@ -19,7 +21,9 @@ class Participante extends Model {
                     model: 'eventos',
                     schema: 'agenda',
                     key: 'id'
-                }
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
             },
 
         }, {

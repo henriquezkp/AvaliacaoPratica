@@ -23,6 +23,7 @@ class ContatoController {
             ],
             attributes: ['id', 'nome']
         });
+
         return res.status(200).json(contatos);
     }
 
@@ -47,17 +48,17 @@ class ContatoController {
         }
 
         let tNome = nome.toUpperCase();
-
+        let tSobrenome = sobrenome.toUpperCase();
         const existente = await Contato.findOne({
-            where: { nome: tNome }
+            where: { nome: tNome, sobrenome: tSobrenome }
         });
 
         if (existente) {
-            return res.status(400).json({ message: 'Estoque já cadastrado' });
+            return res.status(400).json({ message: 'Contato já cadastrado' });
         } else {
             const estoque = await Contato.create({
-                nome: tNome,
-                sobrenome: sobrenome.toUpperCase(),
+                nome: (nome.toUpperCase()),
+                sobrenome: (sobrenome.toUpperCase()),
                 celular,
                 email,
                 created_at: new Date(),
@@ -71,12 +72,40 @@ class ContatoController {
         const { id } = req.params;
         const { nome, sobrenome, celular, email } = req.body;
 
+        const contato = await Contato.findByPk(id);
+        if (!contato) {
+            return res.status(400).json({ message: 'Contato não encontrado' });
+        };
+
+        const put = await Contato.update({
+            nome: ((!nome) ? (contato.dataValues.nome) : (nome.toUpperCase())),
+            sobrenome: ((!sobrenome) ? (contato.dataValues.sobrenome) : (sobrenome.toUpperCase())),
+            celular: ((!celular) ? (contato.dataValues.celular) : (celular)),
+            email: ((!email) ? (contato.dataValues.email) : (email)),
+            updated_at: new Date()
+        }, {
+            where: { id },
+            returning: true
+        });
+        return res.status(200).json(put);
 
 
     }
 
     async delete(req, res) {
         const { id } = req.params;
+
+        const contato = await Contato.findByPk(id);
+        if (!contato) {
+            return res.status(400).json({ message: 'Contato não encontrado' });
+        };
+
+        await Contato.destroy({
+            where: { id },
+            returning: true
+        });
+
+        return res.status(200).json(`${contato.dataValues.nome}, foi deletado com sucesso.`);
     }
 
 }

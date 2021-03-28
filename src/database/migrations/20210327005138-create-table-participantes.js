@@ -9,7 +9,9 @@ module.exports = {
         references: {
           model: 'contatos',
           key: 'id'
-        }
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       id_evento: {
         type: Sequelize.INTEGER,
@@ -17,7 +19,9 @@ module.exports = {
         references: {
           model: 'eventos',
           key: 'id'
-        }
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       created_at: {
         type: Sequelize.DATE,
