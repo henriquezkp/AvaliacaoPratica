@@ -1,6 +1,6 @@
 # Agenda pessoal
 
-## Considerações iniciais
+## Considerações
 ```
     Projeto referente ao ambiente WEB.
     Desenvolvido para avaliação à distância.
@@ -34,5 +34,6 @@
 ## Manipulação de registros
 ```
     Foram feitas via software Insomnia e pelo navegador.
+    yarn dev - para subir a api
     localhost:3000/
 ```
