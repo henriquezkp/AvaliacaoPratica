@@ -7,7 +7,9 @@
 
     Conclusão do projeto: Parcial
 
-    Dentro das habilidades desenvolvidas no curso de Desenvolvimento Fullstack, segue o projeto com todas as skills trabalhadas até o momento. Daremos inicio no próximo módulo à integração do backend com o frontend.
+    Dentro das habilidades desenvolvidas no curso de Desenvolvimento Fullstack, 
+    segue o projeto com todas as skills trabalhadas até o momento. 
+    Daremos inicio no próximo módulo à integração do backend com o frontend.
 
     Os arquivos '.env' e '.env.test' contém informações refenretes ao banco de dados.
 ```
